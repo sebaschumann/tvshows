@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @novela.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @novela.description %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @novela.genre.name %>
+</p>
+
+<p>
+  <strong>Seasons:</strong>
+  <%= @novela.seasons.count%>
+</p>
+
+<%= link_to 'Edit', edit_novela_path(@novela) %> |
+<%= link_to 'Back', novelas_path %>

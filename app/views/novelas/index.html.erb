@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Novelas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Genre</th>
+      <th>Seasons</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @novelas.each do |novela| %>
+      <tr>
+        <td><%= novela.name %></td>
+        <td><%= novela.description %></td>
+        <td><%= novela.genre.name unless novela.genre.nil? %></td>
+        <td> <%= link_to novela.seasons.count, seasons_path(:novela_id => novela.id) %></td>
+        <td>
+          <% if novela.seasons.count == 0 %>
+            <%= novela.seasons.count %>
+          <% else %>
+            <% link_to novela.seasons.count, seasons_path(:novela_id => novela.id) %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', novela %></td>
+        <td><%= link_to 'Edit', edit_novela_path(novela) %></td>
+        <td><%= link_to 'Destroy', novela, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Novela', new_novela_path %>

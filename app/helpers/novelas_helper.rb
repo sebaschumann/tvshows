@@ -1,0 +1,2 @@
+module NovelasHelper
+end
